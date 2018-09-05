@@ -1,4 +1,4 @@
-process.env.PORT = process.env.PORT || 3000;
+process.env.PORT = process.env.PORT || 82;
 
 /*if (process.env.NODE_ENV === "dev") {
   DB = "mongodb://localhost:27017/info-servers";

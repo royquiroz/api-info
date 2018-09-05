@@ -79,5 +79,8 @@ typings/
 #Package-lock.json
 package-lock.json
 
+#Key amazon
+*.pem
+
 
 # End of https://www.gitignore.io/api/node
