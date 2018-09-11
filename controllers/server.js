@@ -101,5 +101,28 @@ module.exports = {
           });
         });
       });
+  },
+
+  getNotariaId: (req, res) => {
+    let id = req.params.id;
+
+    Server.findById(id).exec((err, data) => {
+      if (err) {
+        return res.status(500).json({
+          ok: false,
+          err
+        });
+      }
+      if (!data) {
+        return res.status(404).json({
+          ok: false,
+          message: "No existe ningun dato cargado en la BD"
+        });
+      }
+      res.status(200).json({
+        ok: true,
+        data
+      });
+    });
   }
 };
