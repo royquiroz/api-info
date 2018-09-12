@@ -24,13 +24,15 @@ module.exports = {
           if (err) {
             return res.status(500).json({
               ok: false,
-              message: `Ocurrio un error al guardar la notaria '${json.id_notaria}'`,
+              message: `Ocurrio un error al guardar la notaria '${
+                json.id_notaria
+              }'`,
               err
             });
           }
           res.status(200).json({
             ok: true,
-            message: `Se guardo la notaria '${json.id_notaria}' exitosamente`
+            message: `Se guardo la notaria '${json.id_notaria}' exitosamente`,
             data
           });
         });
@@ -42,13 +44,17 @@ module.exports = {
             if (err) {
               return res.status(500).json({
                 ok: false,
-                message: `Ocurrio un error al actualizar los datos de la notaria '${json.id_notaria}'`,
+                message: `Ocurrio un error al actualizar los datos de la notaria '${
+                  json.id_notaria
+                }'`,
                 err
               });
             }
             res.status(200).json({
               ok: true,
-              message: `Se actualizo la notaria '${json.id_notaria}' exitosamente`,
+              message: `Se actualizo la notaria '${
+                json.id_notaria
+              }' exitosamente`,
               data
             });
           }
@@ -124,12 +130,12 @@ module.exports = {
       if (!data) {
         return res.status(404).json({
           ok: false,
-          message: `No existe ningun dato cargado en la BD`,
+          message: `No existe ningun dato cargado en la BD`
         });
       }
       res.status(200).json({
         ok: true,
-        message: `Se encontraron datos relacionados con el id '${id}'`
+        message: `Se encontraron datos relacionados con el id '${id}'`,
         data
       });
     });
