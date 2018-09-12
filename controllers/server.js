@@ -9,6 +9,7 @@ module.exports = {
       if (err) {
         return res.status(500).json({
           ok: false,
+          message: `Ocurrio un error al buscar la notaria '${json.id_notaria}'`,
           err
         });
       }
@@ -23,11 +24,13 @@ module.exports = {
           if (err) {
             return res.status(500).json({
               ok: false,
+              message: `Ocurrio un error al guardar la notaria '${json.id_notaria}'`,
               err
             });
           }
           res.status(200).json({
             ok: true,
+            message: `Se guardo la notaria '${json.id_notaria}' exitosamente`
             data
           });
         });
@@ -39,11 +42,13 @@ module.exports = {
             if (err) {
               return res.status(500).json({
                 ok: false,
+                message: `Ocurrio un error al actualizar los datos de la notaria '${json.id_notaria}'`,
                 err
               });
             }
             res.status(200).json({
               ok: true,
+              message: `Se actualizo la notaria '${json.id_notaria}' exitosamente`,
               data
             });
           }
@@ -76,13 +81,14 @@ module.exports = {
         if (err) {
           return res.status(500).json({
             ok: false,
+            message: `Ocurrio un error al buscar la notaria`,
             err
           });
         }
         if (!data) {
           return res.status(404).json({
             ok: false,
-            message: "No existe ningun dato cargado en la BD"
+            message: `No existe ningun dato cargado en la BD`
           });
         }
         Server.count({}, (err, total) => {
@@ -95,6 +101,7 @@ module.exports = {
 
           res.status(200).json({
             ok: true,
+            message: `Se encontraron los datos de la notaria`,
             data,
             length: data.length,
             total
@@ -110,17 +117,19 @@ module.exports = {
       if (err) {
         return res.status(500).json({
           ok: false,
+          message: `Ocurrio un error al buscar la notaria con el id '${id}'`,
           err
         });
       }
       if (!data) {
         return res.status(404).json({
           ok: false,
-          message: "No existe ningun dato cargado en la BD"
+          message: `No existe ningun dato cargado en la BD`,
         });
       }
       res.status(200).json({
         ok: true,
+        message: `Se encontraron datos relacionados con el id '${id}'`
         data
       });
     });
