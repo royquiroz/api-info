@@ -109,6 +109,7 @@ module.exports = {
             ok: true,
             message: `Se encontraron los datos de la notaria`,
             data,
+            limit,
             length: data.length,
             total
           });
